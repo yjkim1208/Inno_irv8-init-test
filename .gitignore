@@ -1,0 +1,25 @@
+# 1. 보안 및 설정
+.env
+.vscode/
+
+# 2. 가상환경 및 의존성
+#pilot_venv/
+node_modules/
+
+# 3. 파이썬 및 테스트 캐시
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.tox/
+.coverage
+htmlcov/
+
+# 4. 테스트 결과물 (필요 시 제외)
+#reports/
+screenshots/
+
+# 5. 임시/기타 파일
+codegen.txt
+db 칼럼.txt
+*.log

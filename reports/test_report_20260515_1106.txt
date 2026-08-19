@@ -1,0 +1,6 @@
+✔ TestLogin > test_TC_1_no_input - PASSED
+✔ TestLogin > test_TC_2_id_only - PASSED
+✔ TestLogin > test_TC_3_wrong_password - PASSED
+✔ TestLogin > test_TC_4_invalid_id - PASSED
+✔ TestLogin > test_TC_5_invalid_id_pw - PASSED
+✔ TestLogin > test_TC_6_success - PASSED

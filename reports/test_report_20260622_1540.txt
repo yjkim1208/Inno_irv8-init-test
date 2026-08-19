@@ -1,0 +1,9 @@
+✖ TestLogin > test_TC_1_no_input - FAILED: playwright._impl._errors.Error: Page.goto: net::ERR_CONNECTION_REFUSED at https://172.16.21.10:55702/innorules/web/app/innoportal/index.html
+Call log:
+  - navigating to "https://172.16.21.10:55702/innorules/web/app/innoportal/index.html", waiting until "load"
+✖ TestLogin > test_TC_2_id_only - FAILED: playwright._impl._errors.Error: Page.goto: net::ERR_CONNECTION_REFUSED at https://172.16.21.10:55702/innorules/web/app/innoportal/index.html
+Call log:
+  - navigating to "https://172.16.21.10:55702/innorules/web/app/innoportal/index.html", waiting until "load"
+✖ TestLogin > test_TC_3_wrong_password - FAILED: playwright._impl._errors.Error: Page.goto: net::ERR_CONNECTION_REFUSED at https://172.16.21.10:55702/innorules/web/app/innoportal/index.html
+Call log:
+  - navigating to "https://172.16.21.10:55702/innorules/web/app/innoportal/index.html", waiting until "load"

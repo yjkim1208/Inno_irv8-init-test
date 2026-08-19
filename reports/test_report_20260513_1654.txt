@@ -1,0 +1,6 @@
+✖ TestLogin > test_TC_1_no_input - FAILED: UnicodeDecodeError: 'utf-8' codec can't decode byte 0xb8 in position 63: invalid start byte
+✖ TestLogin > test_TC_2_id_only - FAILED: UnicodeDecodeError: 'utf-8' codec can't decode byte 0xb8 in position 63: invalid start byte
+✖ TestLogin > test_TC_3_wrong_password - FAILED: UnicodeDecodeError: 'utf-8' codec can't decode byte 0xb8 in position 63: invalid start byte
+✖ TestLogin > test_TC_4_invalid_id - FAILED: UnicodeDecodeError: 'utf-8' codec can't decode byte 0xb8 in position 63: invalid start byte
+✖ TestLogin > test_TC_5_invalid_id_pw - FAILED: UnicodeDecodeError: 'utf-8' codec can't decode byte 0xb8 in position 63: invalid start byte
+✖ TestLogin > test_TC_6_success - FAILED: UnicodeDecodeError: 'utf-8' codec can't decode byte 0xb8 in position 63: invalid start byte
