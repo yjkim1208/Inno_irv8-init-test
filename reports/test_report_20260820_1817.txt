@@ -1,0 +1,8 @@
+✔ TestFolder > test_TC_10_add_folder_without_name - PASSED
+✔ TestFolder > test_TC_11_add_valid_folder - PASSED
+✔ TestFolder > test_TC_12_add_duplicate_folder - PASSED
+✔ TestFolder > test_TC_13_rename_folder - PASSED
+✔ TestFolder > test_TC_14_rename_folder_blank - PASSED
+✔ TestFolder > test_TC_15_rename_folder_duplicate - PASSED
+✔ TestFolder > test_TC_16_rename_folder_same_name - PASSED
+✔ TestFolder > test_TC_17_cancel_delete_folder - PASSED

@@ -5,7 +5,11 @@ import os
 import datetime
 import pytest
 
-REPEAT_COUNT = 3
+# 최초 실행 실패 시 추가 재실행 횟수
+MAX_RERUN_COUNT = 2
+
+# 재실행 전 대기 시간(초)
+RERUN_DELAY_SECONDS = 1
 
 report_time = datetime.datetime.now().strftime("%Y%m%d_%H%M")
 report_dir = "reports"
@@ -58,16 +62,22 @@ def pytest_runtest_makereport(item, call):
             except Exception:
                 last_page = page
 
-            timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
-            test_name = item.name.replace("/", "_")
-            screenshot_dir = "screenshots"
-            os.makedirs(screenshot_dir, exist_ok=True)
+            # 페이지가 존재하는지, 이미 닫히지는 않았는지 먼저 확인
+            if last_page and not last_page.is_closed():
+                try:
+                    timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+                    test_name = item.name.replace("/", "_")
+                    screenshot_dir = "screenshots"
+                    os.makedirs(screenshot_dir, exist_ok=True)
 
-            path = f"{screenshot_dir}/{test_name}_{timestamp}.png"
-            last_page.screenshot(path=path, full_page=True)
-            print(f"\n📸 Screenshot saved: {path}")
-
-
+                    path = f"{screenshot_dir}/{test_name}_{timestamp}.png"
+                    
+                    last_page.screenshot(path=path, full_page=True)
+                    print(f"\n📸 Screenshot saved: {path}")
+                except Exception as e:
+                    print(f"\n⚠️ 스크린샷 저장 실패 (페이지 오류): {e}")
+            else:
+                print("\n⚠️ 이미 페이지가 닫혀 있어 스크린샷을 건너뜁니다.")
 
 @pytest.fixture(scope="session")
 def browser():

@@ -2,6 +2,7 @@ from playwright.sync_api import Page
 from pages.components.dialog import Dialog
 from utils.ui_selectors import *
 from utils.ui_helpers import safe_click
+from playwright.sync_api import Error
 
 class BaseFolderPage:
     def __init__(self, page: Page):
@@ -54,10 +55,58 @@ class BaseFolderPage:
 
     def _initiate_folder_action(self, name: str, action_name: str):
         treeitem = self.get_treeitem(name)
+
         treeitem.wait_for(state="visible", timeout=5000)
         treeitem.scroll_into_view_if_needed()
         treeitem.click(button="right")
-        safe_click(self.page.locator(POPOVER_CONTAINER).get_by_role("button", name=action_name, exact=True))
+
+        popover = self.page.locator(POPOVER_CONTAINER)
+
+        # 기존 방식: button 역할로 메뉴 찾기
+        # 기존 테스트에 미치는 영향을 줄이기 위해 그대로 유지
+        role_buttons = popover.get_by_role("button", name=action_name, exact=True)
+
+        for index in range(role_buttons.count()):
+            role_button = role_buttons.nth(index)
+
+            if role_button.is_visible():
+                safe_click(role_button)
+                return
+
+        # 보완 방식: 화면에 표시된 텍스트로 메뉴 찾기
+        text_buttons = popover.get_by_text(action_name,exact=True)
+
+        for index in range(text_buttons.count()):
+            text_button = text_buttons.nth(index)
+
+            if not text_button.is_visible():
+                continue
+
+            # 텍스트 span이 아니라 실제 클릭 가능한 부모 요소 검색
+            clickable_parent = text_button.locator(
+                "xpath=ancestor::*["
+                "self::button or "
+                "self::a or "
+                "self::li or "
+                "@role='button' or "
+                "@role='menuitem'"
+                "][1]"
+            )
+
+            if (
+                clickable_parent.count() > 0
+                and clickable_parent.is_visible()
+            ):
+                safe_click(clickable_parent)
+                return
+
+            # 클릭 가능한 부모 요소가 없는 구조라면 기존 방식 사용
+            safe_click(text_button)
+            return
+
+        raise AssertionError(
+            f"화면에 표시된 '{action_name}' 메뉴를 찾지 못했습니다."
+        )     
 
     def get_error_message(self) -> str:
         return self.dialog.get_message()
@@ -66,7 +115,7 @@ class BaseFolderPage:
         try:
             self.get_treeitem(name).wait_for(state="visible", timeout=timeout)
             return True
-        except:
+        except Error:
             return False
 
     def assert_error_message(self, expected: str):

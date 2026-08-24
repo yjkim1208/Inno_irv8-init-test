@@ -70,7 +70,7 @@ playwright  install
 
 *  **참고:**  `.env_example` 파일 참고.
 
-*  **주요 항목:**  `DB_HOST`, `DB_USER`, `DB_PASSWORD`, `BASE_URL` 등
+*  **주요 항목:**  `DB_HOST`, `DB_USER`, `DB_PASSWORD`, `TARGET_URL` 등
 
   
 
