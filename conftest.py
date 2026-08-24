@@ -3,7 +3,6 @@ from playwright.sync_api import sync_playwright
 from pages.login_page.login import LoginPage
 import os
 import datetime
-import pytest
 
 # 최초 실행 실패 시 추가 재실행 횟수
 MAX_RERUN_COUNT = 2
