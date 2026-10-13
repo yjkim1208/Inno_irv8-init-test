@@ -9,22 +9,25 @@ BASE_FOLDER_DELETE_RULE_BTN = "#btn_del_rule_in_biz"
 BASE_FOLDER_FINAL_DELETE_BTN = "#btn_del_biz"
 BASE_FOLDER_DUPLICATE_DIALOG_CONFIRM_BTN = "#ir_message >> role=button[name='확인']"
 BASE_FOLDER_POPUP_CLOSE_BTN = "#div_add_biz_pop .dialog__button-close"
+BASE_FOLDER_ADD_BIZ_POP = "#div_add_biz_pop"
 BASE_FOLDER_TREEITEM_ROLE = "treeitem"
 BASE_FOLDER_DELETE_BTN_NAME = "폴더 삭제"
+BASE_FOLDER_MODIFY_BIZ_POP = "#div_modify_biz_pop"
 
 # TopFolder 전용
 TOP_FOLDER_ADD_BTN = "#btn_add_biz_top"
 
-# Folder 전용
+# Folder INPUT_ID_SELECTOR
 FOLDER_LIST_AREA = "#bizList"
 FOLDER_ADD_BTN_NAME = "폴더 추가"
 FOLDER_RENAME_BTN_NAME = "폴더 이름 변경"
 FOLDER_RENAME_INPUT = "#in_modify_biz_name"
 FOLDER_RENAME_SAVE_BTN = "#btn_save_modify_biz"
 FOLDER_NAME_DUPLICATE_POPUP_CLOSE = "#st_modify_biz_name >> xpath=../../.. >> .dialog__button-close"
+FOLDER_NAME_ALERT = "#ir_message .ir-confirm.dialog.is-visible"
 
 # ItemPage 관련 Selectors
-ITEM_MANAGE_BUTTON = "항목 관리"
+ITEM_MANAGE_BUTTON_NAME = "항목 관리"
 ITEM_ADD_BUTTON = "#btn_add_item"
 ITEM_SAVE_BUTTON = "#btn_save_item"
 ITEM_SEARCH_BOX = "#in_keyword"
@@ -36,6 +39,8 @@ ITEM_CONFIRM_BUTTON = "#btn_save_item"
 ITEM_ALERT_OK_BUTTON = "#ir_message >> role=button[name='확인']"
 ITEM_POPUP_CLOSE_BUTTON = "#st_item_top >> xpath=../../.. >> .dialog__button-close"
 ITEM_POPUP_DIALOG_CLOSE_BTN = "#st_item_top >> xpath=../../.. >> .dialog__button-close"  
+ITEM_NAME_ALERT = "#ir_message .ir-confirm"
+ITEM_MANAGE_LAYER = "#div_manage_item_layer"
 
 # 참조값
 REF_MANAGE_BUTTON_NAME = "참조값 관리"  
@@ -129,6 +134,7 @@ BTN_TEXT_YES = "예"
 BTN_TEXT_NO = "아니오"
 BTN_TEXT_CONFIRM = "확인"
 BTN_TEXT_SAVE = "저장"
+BTN_TEXT_ADD = "추가"
 
 #  Dialog 관련 Selectors
 DIALOG_MESSAGE_SELECTOR = "div.dialog__content div[class*='css-gmrzsa45']"

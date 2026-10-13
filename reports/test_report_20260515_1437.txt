@@ -1,1 +1,0 @@
-✔ TestLogin > test_TC_1_no_input - PASSED

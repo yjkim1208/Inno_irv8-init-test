@@ -1,8 +1,8 @@
 import re
 import pytest
 from playwright.sync_api import expect
-from pages.login_page.login import LoginPage
-from utils.test_loader import load_test_data
+from pages.login.login import LoginPage
+from utils.test_loader_pilot import load_test_data
 from utils.ui_selectors import INPUT_ID_SELECTOR, INPUT_PW_SELECTOR
 
 class TestLogin:

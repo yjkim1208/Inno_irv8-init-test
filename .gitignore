@@ -17,7 +17,7 @@ htmlcov/
 
 # 4. 테스트 결과물 (필요 시 제외)
 #reports/
-screenshots/
+#screenshots/
 
 # 5. 임시/기타 파일
 codegen.txt

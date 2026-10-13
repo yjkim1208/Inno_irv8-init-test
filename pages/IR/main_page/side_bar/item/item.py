@@ -13,9 +13,11 @@ class ItemPage:
     def add_item(self, name):
         self.item_section.add_item(name)
 
-    def add_item_and_close(self, name: str):
-        self.add_item(name)
+    def add_item_and_close(self, item_content):
+        """항목 추가 후 안내 메시지와 항목 관리 다이얼로그를 닫는다."""
+        self.add_item(item_content)
         self.close_alert_dialog()
+        self.close_item_dialog()
         
     def rename_item(self, name, new_name):
         self.item_section.rename_item(name, new_name)
@@ -64,7 +66,8 @@ class ItemPage:
         return self.dialog.get_message()
 
     def close_alert_dialog(self):
-        self.dialog.confirm()
+        """안내 메시지 팝업의 확인 버튼을 클릭한다."""
+        self.dialog.confirm_message()
 
     # assert
     def assert_alert_message(self, expected: str):

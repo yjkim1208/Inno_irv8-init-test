@@ -1,9 +1,22 @@
 from utils.ui_selectors import DIALOG_CONFIRM_BTN_SELECTOR, DIALOG_MESSAGE_SELECTOR
 from utils.ui_helpers import safe_click
+from playwright.sync_api import expect
 
 class BaseDialog:
     def __init__(self, frame):
         self.frame = frame
+
+        # 오류·안내 메시지 팝업
+        self.message = self.frame.locator(
+            "#ir_message .ir-confirm.dialog.is-visible"
+        ).last
+
+        # 오류·안내 메시지 팝업의 확인 버튼
+        self.confirm_button = self.message.get_by_role(
+            "button",
+            name="확인",
+            exact=True
+        )
 
     def get_visible_dialog(self):
         """
